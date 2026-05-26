@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Sobat88</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:Arial,sans-serif; background:#0f0f0f; color:white; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+.box { background:#1a1a2e; padding:40px 30px; border-radius:15px; width:320px; border:1px solid #00d4ff33; }
+.logo { text-align:center; color:#00d4ff; font-size:26px; font-weight:bold; margin-bottom:25px; }
+input { width:100%; padding:12px; margin:8px 0; border-radius:8px; border:1px solid #333; background:#0f0f0f; color:white; font-size:15px; }
+.btn { width:100%; padding:12px; background:#00d4ff; color:#000; border:none; border-radius:8px; font-weight:bold; font-size:16px; cursor:pointer; margin-top:10px; }
+.link { text-align:center; margin-top:15px; color:#aaa; }
+.link a { color:#00d4ff; text-decoration:none; }
+.flash { background:#ff000022; border:1px solid #ff4444; padding:10px; border-radius:8px; margin-bottom:15px; text-align:center; color:#ff4444; }
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="logo">🤖 SOBAT88</div>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for msg in messages %}
+        <div class="flash">{{ msg }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button class="btn">Login</button>
+  </form>
+
+  <div class="link">
+    Belum punya akun? <a href="/register">Daftar disini</a>
+  </div>
+</div>
+</body>
+</html>
